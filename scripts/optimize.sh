@@ -33,7 +33,7 @@ REFERENCE_CONTENT=$(<"$REFERENCE_FILE")
 if [[ $# -gt 0 ]]; then
   FILES=("$@")
 else
-  FILES=(AGENTS.md SOUL.md TOOLS.md)
+  FILES=(AGENTS.md SOUL.md TOOLS.md USER.md)
 fi
 
 # Directories
@@ -109,10 +109,14 @@ $ORIGINAL_CONTENT"
   fi
 
   # Clean result: remove code fences if model added them
-  RESULT=$(echo "$RESULT" | sed '/^```\(markdown\)\?$/d')
+  RESULT=$(echo "$RESULT" | sed '/^```/d' | sed '/^```markdown$/d')
 
-  # Write optimized file
-  echo "$RESULT" > "$OUTPUT_DIR/$FILE"
+  if [[ -z "$RESULT" || -z "${RESULT// /}" ]]; then
+    echo "   ✗ Empty result from model for $FILE. Skipping."
+    continue
+  fi
+
+  printf '%s\n' "$RESULT" > "$OUTPUT_DIR/$FILE"
 
   WORDS_AFTER=$(wc_words "$OUTPUT_DIR/$FILE")
   TOTAL_AFTER=$((TOTAL_AFTER + WORDS_AFTER))

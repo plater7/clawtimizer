@@ -2,7 +2,7 @@
 
 > Compress your OpenClaw workspace files. Save tokens. Save money.
 
-Clawtimizer optimizes your workspace bootstrap files (AGENTS.md, SOUL.md, TOOLS.md, USER.md) by compressing them with a free LLM while preserving all operational instructions.
+Clawtimizer optimizes your workspace bootstrap files (AGENTS.md, SOUL.md, TOOLS.md, USER.md) by compressing them with a free LLM while preserving all operational instructions. By default, all four files are optimized.
 
 ## Why it matters
 
@@ -31,7 +31,7 @@ bash skills/clawtimizer/scripts/optimize.sh
 # With a custom model
 OPTIMIZER_MODEL="opencode/glm-4.7-free" bash skills/clawtimizer/scripts/optimize.sh
 
-# Single file only
+# Single file only (e.g., just AGENTS.md)
 bash skills/clawtimizer/scripts/optimize.sh AGENTS.md
 ```
 

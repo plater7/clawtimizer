@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Lint shell scripts
+        run: shellcheck scripts/*.sh
+
+      - name: Check markdown files
+        run: |
+          for f in *.md references/*.md; do
+            if [ -f "$f" ]; then
+              echo "Checking $f"
+              if grep -q $'\t' "$f"; then
+                echo "::warning file=$f::Contains tabs, prefer spaces"
+              fi
+            fi
+          done
