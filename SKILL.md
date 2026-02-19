@@ -1,11 +1,15 @@
 ---
 name: clawtimizer
 description: Optimizes workspace bootstrap files (AGENTS.md, SOUL.md, TOOLS.md, USER.md) to minimize token injection cost per message.
-emoji: 🗜️
-allowed-tools:
-  - Bash
-  - Read
-  - Write
+user-invocable: true
+disable-model-invocation: false
+metadata:
+  openclaw:
+    emoji: "🗜️"
+    requires:
+      bins: ["openclaw"]
+      env: []
+    homepage: "https://github.com/plater7/clawtimizer"
 ---
 
 # Clawtimizer

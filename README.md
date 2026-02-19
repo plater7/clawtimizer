@@ -4,8 +4,9 @@
 
 **Compress your OpenClaw workspace files. Save tokens. Save money.**
 
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/plater7/clawtimizer/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue.svg)](https://github.com/openclaw/openclaw)
+[![OpenClaw Compatible](https://img.shields.io/badge/OpenClaw-Compatible-brightgreen.svg)](https://docs.openclaw.ai)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 </div>
@@ -31,11 +32,18 @@ OpenClaw injects workspace files into the system prompt of **every message**. Ev
 
 ## 📦 Installation
 
+### Prerequisites
+
+- [OpenClaw](https://docs.openclaw.ai/install) CLI installed and configured
+- An LLM provider (OpenRouter, OpenCode, or local Ollama)
+
+### Install the skill
+
 ```bash
-# Via ClawHub (if available)
+# Via ClawHub (recommended)
 clawhub install clawtimizer
 
-# Manual
+# Manual installation
 cd ~/.openclaw/workspace/skills
 git clone https://github.com/plater7/clawtimizer.git
 ```
@@ -123,12 +131,22 @@ Nothing changes automatically — you're always in control.
 
 ---
 
+## 📚 Documentation
+
+- [OpenClaw Documentation](https://docs.openclaw.ai)
+- [Workspace Files Reference](https://docs.openclaw.ai/workspace/files)
+- [Skill Development Guide](https://docs.openclaw.ai/skills)
+
+---
+
 ## 🤝 Contributing
 
 PRs welcome — especially for:
 - Adding more models
 - Improving the compression prompt
 - Bug fixes and documentation
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
