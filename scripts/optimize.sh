@@ -5,6 +5,13 @@ set -euo pipefail
 # Clawtimizer — OpenClaw Workspace File Optimizer
 # ============================================================
 
+# Dependency check
+if ! command -v openclaw &> /dev/null; then
+    echo "ERROR: openclaw CLI not found on PATH"
+    echo "Install OpenClaw: https://docs.openclaw.ai/install"
+    exit 1
+fi
+
 MODEL="${OPTIMIZER_MODEL:-openrouter/openai/gpt-oss-20b:free}"
 FALLBACK_MODEL="opencode/glm-4.7-free"
 DATE=$(date +%Y-%m-%d)
