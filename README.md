@@ -1,14 +1,35 @@
-# Clawtimizer 🗜️
+<div align="center">
 
-> Compress your OpenClaw workspace files. Save tokens. Save money.
+# 🗜️ Clawtimizer
 
-Clawtimizer optimizes your workspace bootstrap files (AGENTS.md, SOUL.md, TOOLS.md, USER.md) by compressing them with a free LLM while preserving all operational instructions.
+**Compress your OpenClaw workspace files. Save tokens. Save money.**
 
-## Why it matters
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue.svg)](https://github.com/openclaw/openclaw)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-OpenClaw injects workspace files into the system prompt of **every message**. Every token in those files is multiplied by every interaction. Reducing word count by 78% can save **~$117/month** at 100 Opus calls/day. See [issue #9157](https://github.com/openclaw/openclaw/issues/9157) for details.
+</div>
 
-## Installation
+---
+
+## ✨ What it does
+
+Clawtimizer optimizes your workspace bootstrap files (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `USER.md`) by compressing them with a free LLM while preserving all operational instructions.
+
+### 💰 Why it matters
+
+OpenClaw injects workspace files into the system prompt of **every message**. Every token in those files is multiplied by every interaction.
+
+| Metric | Value |
+|--------|-------|
+| Typical reduction | **78%** fewer words |
+| Monthly savings | **~$117/month** at 100 Opus calls/day |
+
+> See [issue #9157](https://github.com/openclaw/openclaw/issues/9157) for details.
+
+---
+
+## 📦 Installation
 
 ```bash
 # Via ClawHub (if available)
@@ -19,13 +40,20 @@ cd ~/.openclaw/workspace/skills
 git clone https://github.com/plater7/clawtimizer.git
 ```
 
-## Usage
+---
+
+## 🚀 Usage
+
+### From the agent (chat)
+
+```
+"Optimize the workspace files"
+```
+
+### Manual execution
 
 ```bash
-# From the agent (chat)
-"Optimize the workspace files"
-
-# Manual
+# Default optimization
 bash skills/clawtimizer/scripts/optimize.sh
 
 # With a custom model
@@ -35,26 +63,38 @@ OPTIMIZER_MODEL="opencode/glm-4.7-free" bash skills/clawtimizer/scripts/optimize
 bash skills/clawtimizer/scripts/optimize.sh AGENTS.md
 ```
 
-## Supported models
+---
+
+## 🤖 Supported Models
 
 | Priority | Model | Notes |
-|----------|-------|-------|
-| 1 (default) | `openrouter/openai/gpt-oss-20b:free` | Free, 32K context |
-| 2 | `opencode/glm-4.7-free` | Free, good for structured tasks |
-| 3 | `opencode/kimi-k2.5-free` | Free, very long context |
-| 4 | `openrouter/qwen/qwen3-coder:free` | Free, precise with markdown |
-| 5 | `ollama/qwen3:14b` (local) | No API cost, offline, slower |
+|:--------:|-------|-------|
+| 1️⃣ | `openrouter/openai/gpt-oss-20b:free` | **Default**, Free, 32K context |
+| 2️⃣ | `opencode/glm-4.7-free` | Free, good for structured tasks |
+| 3️⃣ | `opencode/kimi-k2.5-free` | Free, very long context |
+| 4️⃣ | `openrouter/qwen/qwen3-coder:free` | Free, precise with markdown |
+| 5️⃣ | `ollama/qwen3:14b` (local) | No API cost, offline, slower |
 
-Avoid models with <7B parameters or <8K context window.
+> ⚠️ Avoid models with <7B parameters or <8K context window.
 
-## How it works
+---
 
-1. **Backup** originals to `memory/workspace-backup-YYYY-MM-DD/`
-2. **Compress** each file using a free LLM with a specialized prompt
-3. **Show diff** with word count before/after
-4. **User confirms** before applying — nothing changes automatically
+## 🔧 How it works
 
-## Example output
+```
+┌─────────────────────────────────────────────────────┐
+│  1. 📦 Backup  originals to memory/workspace-backup/ │
+│  2. 🔧 Compress each file with free LLM             │
+│  3. 📊 Show   diff with word count before/after     │
+│  4. ✅ Confirm user approval before applying        │
+└─────────────────────────────────────────────────────┘
+```
+
+Nothing changes automatically — you're always in control.
+
+---
+
+## 📊 Example Output
 
 ```
 🗜️  Workspace Optimizer
@@ -73,16 +113,35 @@ Avoid models with <7B parameters or <8K context window.
    Monthly savings (100 Opus calls/day): ~$117/month
 ```
 
-## Safety
+---
 
-- Always creates backups before optimizing
-- Never applies changes without user confirmation
-- Never removes OpenClaw conventions (`memory/`, `HEARTBEAT_OK`, etc.)
+## 🛡️ Safety
 
-## Contributing
+- ✅ Always creates backups before optimizing
+- ✅ Never applies changes without user confirmation
+- ✅ Never removes OpenClaw conventions (`memory/`, `HEARTBEAT_OK`, etc.)
 
-PRs welcome — especially for adding more models or improving the compression prompt.
+---
 
-## License
+## 🤝 Contributing
 
-[MIT](LICENSE)
+PRs welcome — especially for:
+- Adding more models
+- Improving the compression prompt
+- Bug fixes and documentation
+
+---
+
+## 📄 License
+
+[MIT](LICENSE) © 2026 plater7
+
+---
+
+<div align="center">
+
+**🤖 This project was developed with AI assistance by [OpenCode](https://opencode.ai)**
+
+*Co-authored-by: OpenCode 🤖 <opencode@anomaly.la>*
+
+</div>
